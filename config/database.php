@@ -1,12 +1,24 @@
 <?php
 // ============================================================
 // CONFIGURACION DE BASE DE DATOS - RestaurantOS
+// Auto-detecta entorno (LOCAL vs PRODUCCION) por SO/hostname.
 // ============================================================
+$__host      = $_SERVER['HTTP_HOST'] ?? gethostname();
+$__isWindows = DIRECTORY_SEPARATOR === '\\';
+$__isLocal   = (
+    $__isWindows ||
+    str_contains($__host, 'localhost') ||
+    str_contains($__host, '127.0.0.1') ||
+    str_contains($__host, '.test')     ||
+    str_contains($__host, '.local')
+);
+
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', 'c4p1cu4$$');
+define('DB_PASS', $__isLocal ? '' : 'c4p1cu4$$');
 define('DB_NAME', 'restaurant_db');
 define('DB_PORT', 3306);
+define('APP_ENV', $__isLocal ? 'development' : 'production');
 
 date_default_timezone_set('America/Lima');
 

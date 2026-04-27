@@ -150,6 +150,7 @@ textarea{min-height:80px;resize:vertical}
     <div class="nav-item" onclick="showPage('delivery',this)"><span class="icon">🛵</span> Delivery</div>
     <div class="nav-item" onclick="showPage('crm',this)"><span class="icon">👥</span> Clientes CRM</div>
     <div class="nav-item" onclick="showPage('reportes',this)"><span class="icon">📊</span> Reportes</div>
+    <a href="<?= BASE_URL ?>/modules/admin/facturacion.php" class="nav-item" style="text-decoration:none"><span class="icon">📄</span> Facturación SUNAT</a>
   </div>
   <div class="nav-section">
     <div class="nav-label">Sistema</div>
