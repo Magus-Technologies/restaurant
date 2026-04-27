@@ -1,0 +1,18 @@
+Options -Indexes
+
+# Proteger archivos sensibles
+<FilesMatch "(database\.php|functions\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /restaurant/
+
+    # Rutas cortas opcionales
+    RewriteRule ^mozos/?$ modules/mozos/index.php [L]
+    RewriteRule ^cocina/?$ modules/cocina/index.php [L]
+    RewriteRule ^caja/?$   modules/caja/index.php [L]
+    RewriteRule ^admin/?$  modules/admin/index.php [L]
+</IfModule>
